@@ -1,0 +1,29 @@
+{
+  "name": "precato_server_sub_service",
+  "version": "1.0.0",
+  "description": "remake the precato test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guirra-byte/precato_server_sub_service.git"
+  },
+  "author": "Matheus Guirra ✝",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guirra-byte/precato_server_sub_service/issues"
+  },
+  "homepage": "https://github.com/guirra-byte/precato_server_sub_service#readme",
+  "dependencies": {
+    "@prisma/client": "^4.9.0",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@fastify/cors": "^8.2.0",
+    "@types/node": "^18.11.18",
+    "prisma": "^4.9.0"
+  }
+}
