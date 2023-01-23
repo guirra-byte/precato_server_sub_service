@@ -6,6 +6,45 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model Sub {
+  id               String   @id @default(uuid())
+  name             String
+  email            String
+  created_at       DateTime @default(now())
+  block            String
+  history          String?
+  previous_history String?
+  active           Boolean  @default(true)
+  last_message     String?
+
+  previousMessages MessagesSubs[]
+
+  @@map("subs")
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  name       String
+  block      String
+  template   String
+  created_at DateTime @default(now())
+  position   DateTime
+
+  subs MessagesSubs[]
+
+  @@map("messages")
+}
+
+model MessagesSubs {
+  sub_id String
+  subs   Sub     @relation(fields: [sub_id], references: [id])
+  msg_id String
+  msgs   Message @relation(fields: [msg_id], references: [id])
+
+  @@id([sub_id, msg_id])
+  @@map("message_subs")
 }
